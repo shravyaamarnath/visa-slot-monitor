@@ -52,8 +52,8 @@ async def get_page_content(browser, url: str) -> tuple[str, str]:
     """
     page = await browser.new_page()
     try:
-        await page.goto(url, wait_until="networkidle", timeout=30_000)
-        await page.wait_for_timeout(3_000)
+        await page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+        await page.wait_for_timeout(5_000)
 
         if "#" in url:
             fragment = url.split("#")[-1]
