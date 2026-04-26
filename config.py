@@ -13,15 +13,48 @@ URLS = [
         "label": "CheckVisaSlots — H1B Regular",
         "url": "https://checkvisaslots.com/latest-us-visa-availability/h-1b-regular/",
     },
+    # ── VisaGrader — H1B Biometrics ───────────────────────────────────────────
+    {
+        "label": "VisaGrader — New Delhi H1B Biometrics",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/new-delhi-P147/h1b-visa-H1B#Biometrics",
+    },
+    {
+        "label": "VisaGrader — Chennai H1B Biometrics",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/chennai-P48/h1b-visa-H1B#Biometrics",
+    },
+    {
+        "label": "VisaGrader — Hyderabad H1B Biometrics",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/hyderabad-P85/h1b-visa-H1B#Biometrics",
+    },
+    {
+        "label": "VisaGrader — Kolkata H1B Biometrics",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/kolkata-P100/h1b-visa-H1B#Biometrics",
+    },
     {
         "label": "VisaGrader — Mumbai H1B Biometrics",
         "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/mumbai-P139/h1b-visa-H1B#Biometrics",
     },
-    # Add more URLs here as needed:
-    # {
-    #     "label": "My Custom URL",
-    #     "url": "https://example.com/page",
-    # },
+    # ── VisaGrader — H1B Interview ────────────────────────────────────────────
+    {
+        "label": "VisaGrader — New Delhi H1B Interview",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/new-delhi-P147/h1b-visa-H1B#Interview",
+    },
+    {
+        "label": "VisaGrader — Chennai H1B Interview",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/chennai-P48/h1b-visa-H1B#Interview",
+    },
+    {
+        "label": "VisaGrader — Hyderabad H1B Interview",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/hyderabad-P85/h1b-visa-H1B#Interview",
+    },
+    {
+        "label": "VisaGrader — Kolkata H1B Interview",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/kolkata-P100/h1b-visa-H1B#Interview",
+    },
+    {
+        "label": "VisaGrader — Mumbai H1B Interview",
+        "url": "https://visagrader.com/us-visa-time-slots-availability/india-ind/mumbai-P139/h1b-visa-H1B#Interview",
+    },
 ]
 
 # ── Check frequency ────────────────────────────────────────────────────────────
