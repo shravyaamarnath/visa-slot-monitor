@@ -25,7 +25,8 @@ Here's what happens each run:
 **Sites monitored:** All 5 US consulate locations in India (New Delhi, Mumbai, Chennai, Hyderabad, Kolkata) for both H1B Biometrics and Interview slots — 10 URLs in total, plus a general H1B availability tracker.
 
 ## Tech Stack
-
+**Built using Claude Code**
 - **Python + Playwright** — browser automation
 - **GitHub Actions** — free cloud scheduler (runs every 5 min)
 - **Telegram Bot API** — instant notifications
+ 
