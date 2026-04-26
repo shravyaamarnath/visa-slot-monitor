@@ -1,7 +1,12 @@
 {
   "https://checkvisaslots.com/latest-us-visa-availability/h-1b-regular/": {
     "label": "CheckVisaSlots \u2014 H1B Regular",
-    "last_checked": "2026-04-26 16:04:41",
-    "hash": "c4641acda3df36501167d7e50ed4b6bf027dcf5f4d44a82c6010ad1507e46fa7"
+    "last_checked": "2026-04-26 16:08:45",
+    "hash": "db0ba83f3442f34b120f409e494be95d0412660e51ca821ef47bc2be29822eaf"
+  },
+  "https://visagrader.com/us-visa-time-slots-availability/india-ind/mumbai-P139/h1b-visa-H1B#Biometrics": {
+    "label": "VisaGrader \u2014 Mumbai H1B Biometrics",
+    "last_checked": "2026-04-26 16:08:45",
+    "hash": "9dc92b33ea885ac81459aad688ea0726854fac5888f3e9d79f85a04b829565ce"
   }
 }
