@@ -45,12 +45,28 @@ def save_state(state: dict):
 
 
 # ── Page scraping ──────────────────────────────────────────────────────────────
+CLOUDFLARE_KEYWORDS = ["security service", "verifying you are not a bot", "Ray ID", "Cloudflare"]
+
 async def get_page_content(browser, url: str) -> tuple[str, str]:
     """
     Returns (visible_text, sha256_hash).
     Uses a real Chromium browser so JS-rendered pages and #hash fragments work.
     """
-    page = await browser.new_page()
+    context = await browser.new_context(
+        user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        locale="en-US",
+        timezone_id="America/New_York",
+        viewport={"width": 1280, "height": 800},
+        extra_http_headers={"Accept-Language": "en-US,en;q=0.9"},
+    )
+    await context.add_init_script(
+        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+    )
+    page = await context.new_page()
     try:
         await page.goto(url, wait_until="domcontentloaded", timeout=60_000)
         await page.wait_for_timeout(5_000)
@@ -73,9 +89,13 @@ async def get_page_content(browser, url: str) -> tuple[str, str]:
             return document.body?.innerText?.trim() ?? '';
         }""")
 
+        if any(kw in text for kw in CLOUDFLARE_KEYWORDS):
+            raise RuntimeError("Cloudflare challenge page detected — bot blocked")
+
         return text, hashlib.sha256(text.encode()).hexdigest()
     finally:
         await page.close()
+        await context.close()
 
 
 # ── Diff summary ───────────────────────────────────────────────────────────────
@@ -147,7 +167,14 @@ async def run_monitor():
     log.info(f"   Mode     : {'single-shot (CI)' if CHECK_INTERVAL_SECONDS == 0 else 'continuous (' + str(CHECK_INTERVAL_SECONDS) + 's)'}")
 
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+            ],
+        )
 
         if CHECK_INTERVAL_SECONDS == 0:
             # GitHub Actions mode — check once and exit
